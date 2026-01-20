@@ -11,356 +11,95 @@ permalink: /commands/
 
 ### Balance Commands
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/balance [player] [currency]</code></td>
-<td>Check balance</td>
-<td><code>relish.economy.balance</code></td>
-<td><code>/bal coins</code></td>
-</tr>
-<tr>
-<td><code>/bal [player] [currency]</code></td>
-<td>Alias for balance</td>
-<td><code>relish.economy.balance</code></td>
-<td><code>/bal Steve dollars</code></td>
-</tr>
-<tr>
-<td><code>/money [player] [currency]</code></td>
-<td>Alias for balance</td>
-<td><code>relish.economy.balance</code></td>
-<td><code>/money</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/balance [player] [currency]` | Check balance | `relish.economy.balance` | `/bal coins` |
+| `/bal [player] [currency]` | Alias for balance | `relish.economy.balance` | `/bal Steve dollars` |
+| `/money [player] [currency]` | Alias for balance | `relish.economy.balance` | `/money` |
 
 ### Payment Commands
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/pay &lt;player&gt; &lt;amount&gt; [currency]</code></td>
-<td>Send money</td>
-<td><code>relish.economy.pay</code></td>
-<td><code>/pay Steve 100</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/pay <player> <amount> [currency]` | Send money | `relish.economy.pay` | `/pay Steve 100` |
 
 ### Leaderboard Commands
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/baltop [currency] [page]</code></td>
-<td>View top balances</td>
-<td><code>relish.economy.baltop</code></td>
-<td><code>/baltop dollars 2</code></td>
-</tr>
-<tr>
-<td><code>/balancetop [currency] [page]</code></td>
-<td>Alias for baltop</td>
-<td><code>relish.economy.baltop</code></td>
-<td><code>/balancetop</code></td>
-</tr>
-<tr>
-<td><code>/topbalances [currency] [page]</code></td>
-<td>Alias for baltop</td>
-<td><code>relish.economy.baltop</code></td>
-<td><code>/topbalances coins</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/baltop [currency] [page]` | View top balances | `relish.economy.baltop` | `/baltop dollars 2` |
+| `/balancetop [currency] [page]` | Alias for baltop | `relish.economy.baltop` | `/balancetop` |
+| `/topbalances [currency] [page]` | Alias for baltop | `relish.economy.baltop` | `/topbalances coins` |
 
 ### Currency Commands
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/currency list</code></td>
-<td>List all currencies</td>
-<td><code>relish.economy.currency</code></td>
-<td><code>/currency list</code></td>
-</tr>
-<tr>
-<td><code>/currency info [currency]</code></td>
-<td>Currency information</td>
-<td><code>relish.economy.currency</code></td>
-<td><code>/currency info dollars</code></td>
-</tr>
-<tr>
-<td><code>/curr list</code></td>
-<td>Alias for currency</td>
-<td><code>relish.economy.currency</code></td>
-<td><code>/curr list</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/currency list` | List all currencies | `relish.economy.currency` | `/currency list` |
+| `/currency info [currency]` | Currency information | `relish.economy.currency` | `/currency info dollars` |
+| `/curr list` | Alias for currency | `relish.economy.currency` | `/curr list` |
 
 ## Premium Commands <span class="badge badge-premium">Premium</span>
 
 ### Exchange Commands
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/exchange &lt;from&gt; &lt;to&gt; &lt;amount&gt; [confirm]</code></td>
-<td>Convert currencies</td>
-<td><code>relish.economy.exchange</code></td>
-<td><code>/exchange dollars coins 500</code></td>
-</tr>
-<tr>
-<td><code>/convert &lt;from&gt; &lt;to&gt; &lt;amount&gt; [confirm]</code></td>
-<td>Alias for exchange</td>
-<td><code>relish.economy.exchange</code></td>
-<td><code>/convert coins dollars 10</code></td>
-</tr>
-<tr>
-<td><code>/swap &lt;from&gt; &lt;to&gt; &lt;amount&gt; [confirm]</code></td>
-<td>Alias for exchange</td>
-<td><code>relish.economy.exchange</code></td>
-<td><code>/swap dollars coins 1000</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/exchange <from> <to> <amount> [confirm]` | Convert currencies | `relish.economy.exchange` | `/exchange dollars coins 500` |
+| `/convert <from> <to> <amount> [confirm]` | Alias for exchange | `relish.economy.exchange` | `/convert coins dollars 10` |
+| `/swap <from> <to> <amount> [confirm]` | Alias for exchange | `relish.economy.exchange` | `/swap dollars coins 1000` |
 
 ### Shop Commands
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/shop [category]</code></td>
-<td>Open shop GUI</td>
-<td><code>relish.economy.shop</code></td>
-<td><code>/shop blocks</code></td>
-</tr>
-<tr>
-<td><code>/store [category]</code></td>
-<td>Alias for shop</td>
-<td><code>relish.economy.shop</code></td>
-<td><code>/store</code></td>
-</tr>
-<tr>
-<td><code>/buy [category]</code></td>
-<td>Alias for shop</td>
-<td><code>relish.economy.shop</code></td>
-<td><code>/buy tools</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/shop [category]` | Open shop GUI | `relish.economy.shop` | `/shop blocks` |
+| `/store [category]` | Alias for shop | `relish.economy.shop` | `/store` |
+| `/buy [category]` | Alias for shop | `relish.economy.shop` | `/buy tools` |
 
 ### Selling Commands
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/sellhand</code></td>
-<td>Sell item in hand</td>
-<td><code>relish.economy.sell</code></td>
-<td><code>/sellhand</code></td>
-</tr>
-<tr>
-<td><code>/sellall [confirm]</code></td>
-<td>Sell all items</td>
-<td><code>relish.economy.sell</code></td>
-<td><code>/sellall confirm</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/sellhand` | Sell item in hand | `relish.economy.sell` | `/sellhand` |
+| `/sellall [confirm]` | Sell all items | `relish.economy.sell` | `/sellall confirm` |
 
 ### Physical Currency Commands
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/withdraw &lt;currency&gt; &lt;amount&gt;</code></td>
-<td>Get physical currency</td>
-<td><code>relish.economy.withdraw</code></td>
-<td><code>/withdraw coins 10</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/withdraw <currency> <amount>` | Get physical currency | `relish.economy.withdraw` | `/withdraw coins 10` |
 
 ## Admin Commands
 
 ### Economy Management
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/eco give &lt;player|all&gt; &lt;amount&gt; [currency]</code></td>
-<td>Give money</td>
-<td><code>relish.economy.eco</code></td>
-<td><code>/eco give Steve 1000</code></td>
-</tr>
-<tr>
-<td><code>/eco take &lt;player|all&gt; &lt;amount&gt; [currency]</code></td>
-<td>Take money</td>
-<td><code>relish.economy.eco</code></td>
-<td><code>/eco take Steve 500</code></td>
-</tr>
-<tr>
-<td><code>/eco set &lt;player|all&gt; &lt;amount&gt; [currency]</code></td>
-<td>Set balance</td>
-<td><code>relish.economy.eco</code></td>
-<td><code>/eco set Steve 2000</code></td>
-</tr>
-<tr>
-<td><code>/economy give &lt;player&gt; &lt;amount&gt;</code></td>
-<td>Alias for eco</td>
-<td><code>relish.economy.eco</code></td>
-<td><code>/economy give Steve 100</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/eco give <player\|all> <amount> [currency]` | Give money | `relish.economy.eco` | `/eco give Steve 1000` |
+| `/eco take <player\|all> <amount> [currency]` | Take money | `relish.economy.eco` | `/eco take Steve 500` |
+| `/eco set <player\|all> <amount> [currency]` | Set balance | `relish.economy.eco` | `/eco set Steve 2000` |
+| `/economy give <player> <amount>` | Alias for eco | `relish.economy.eco` | `/economy give Steve 100` |
 
 ### Plugin Management
 
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-<th>Permission</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/re help [page]</code></td>
-<td>Show help</td>
-<td><code>relish.economy.use</code></td>
-<td><code>/re help 2</code></td>
-</tr>
-<tr>
-<td><code>/re version</code></td>
-<td>Plugin information</td>
-<td><code>relish.economy.use</code></td>
-<td><code>/re version</code></td>
-</tr>
-<tr>
-<td><code>/re reload</code></td>
-<td>Reload configuration</td>
-<td><code>relish.economy.admin</code></td>
-<td><code>/re reload</code></td>
-</tr>
-<tr>
-<td><code>/re license</code></td>
-<td>Check license status</td>
-<td><code>relish.economy.admin</code></td>
-<td><code>/re license</code></td>
-</tr>
-<tr>
-<td><code>/re migrate &lt;plugin&gt; &lt;currency&gt;</code></td>
-<td>Import data</td>
-<td><code>relish.economy.admin</code></td>
-<td><code>/re migrate essentials dollars</code></td>
-</tr>
-</tbody>
-</table>
+| Command | Description | Permission | Example |
+|---------|-------------|------------|---------|
+| `/re help [page]` | Show help | `relish.economy.use` | `/re help 2` |
+| `/re version` | Plugin information | `relish.economy.use` | `/re version` |
+| `/re reload` | Reload configuration | `relish.economy.admin` | `/re reload` |
+| `/re license` | Check license status | `relish.economy.admin` | `/re license` |
+| `/re migrate <plugin> <currency>` | Import data | `relish.economy.admin` | `/re migrate essentials dollars` |
 
 ## Amount Shortcuts
 
 You can use these shortcuts in any amount field:
 
-<table>
-<thead>
-<tr>
-<th>Shortcut</th>
-<th>Value</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>k</code></td>
-<td>× 1,000</td>
-<td><code>5k</code> = 5,000</td>
-</tr>
-<tr>
-<td><code>m</code></td>
-<td>× 1,000,000</td>
-<td><code>2m</code> = 2,000,000</td>
-</tr>
-<tr>
-<td><code>b</code></td>
-<td>× 1,000,000,000</td>
-<td><code>1b</code> = 1,000,000,000</td>
-</tr>
-</tbody>
-</table>
+| Shortcut | Value | Example |
+|----------|-------|---------|
+| `k` | × 1,000 | `5k` = 5,000 |
+| `m` | × 1,000,000 | `2m` = 2,000,000 |
+| `b` | × 1,000,000,000 | `1b` = 1,000,000,000 |
 
 ## Command Examples
 
