@@ -35,7 +35,7 @@ permalink: /commands/
 | `/currency info [currency]` | Currency information | `relish.economy.currency` | `/currency info dollars` |
 | `/curr list` | Alias for currency | `relish.economy.currency` | `/curr list` |
 
-## Premium Commands ⭐
+## Premium Commands <span class="badge badge-premium">Premium</span>
 
 ### Exchange Commands
 | Command | Description | Permission | Example |
@@ -94,7 +94,7 @@ You can use these shortcuts in any amount field:
 ## Command Examples
 
 ### Basic Usage
-```bash
+```
 # Check your balance
 /balance
 
@@ -111,8 +111,8 @@ You can use these shortcuts in any amount field:
 /baltop coins 2
 ```
 
-### Premium Features
-```bash
+### Premium Features <span class="badge badge-premium">Premium</span>
+```
 # Exchange 1000 dollars for coins
 /exchange dollars coins 1000 confirm
 
@@ -130,7 +130,7 @@ You can use these shortcuts in any amount field:
 ```
 
 ### Admin Commands
-```bash
+```
 # Give 1000 dollars to Steve
 /eco give Steve 1000 dollars
 
