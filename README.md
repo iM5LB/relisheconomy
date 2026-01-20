@@ -11,7 +11,7 @@
 
 **Modern economy plugin with multi-currency support**
 
-[📥 Download](https://modrinth.com/plugin/relisheconomy) • [📖 Documentation](https://docs.relish.dev) • [💬 Support](https://discord.gg/relish) • [🛒 Premium](https://builtbybit.com/resources/relisheconomy)
+[📥 Download](https://modrinth.com/plugin/relisheconomy) • [📖 Documentation](https://im5lb.github.io/relisheconomy) • [💬 Support](https://discord.gg/relish) • [🛒 Premium](https://builtbybit.com/resources/relisheconomy)
 
 </div>
 
