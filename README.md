@@ -316,11 +316,13 @@ balance:
 
 ## 📄 **License**
 
-RelishEconomy is available in two versions:
-- **Free Version**: Basic economy features
-- **Premium Version**: Advanced features and GUIs
+RelishEconomy is licensed under the **MIT License** for the free version.
 
-For premium licensing, visit [BuiltByBit](https://builtbybit.com/resources/relisheconomy).
+**Premium features** (Shop GUI, Sell GUI, Currency Exchange, MySQL support) require a separate commercial license available on [BuiltByBit](https://builtbybit.com/resources/relisheconomy).
+
+- **Free Version**: MIT License - Use, modify, and distribute freely
+- **Premium Features**: Commercial License - One license per server
+- **Source Code**: Available on GitHub (premium features are license-gated)
 
 ---
 
