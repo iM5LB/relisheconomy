@@ -29,7 +29,6 @@ permalink: /commands/
 |---------|-------------|------------|---------|
 | `/baltop [currency] [page]` | View top balances | `relish.economy.baltop` | `/baltop dollars 2` |
 | `/balancetop [currency] [page]` | Alias for baltop | `relish.economy.baltop` | `/balancetop` |
-| `/topbalances [currency] [page]` | Alias for baltop | `relish.economy.baltop` | `/topbalances coins` |
 
 ### Currency Commands
 
@@ -37,7 +36,6 @@ permalink: /commands/
 |---------|-------------|------------|---------|
 | `/currency list` | List all currencies | `relish.economy.currency` | `/currency list` |
 | `/currency info [currency]` | Currency information | `relish.economy.currency` | `/currency info dollars` |
-| `/curr list` | Alias for currency | `relish.economy.currency` | `/curr list` |
 
 ## Premium Commands <span class="badge badge-premium">Premium</span>
 
@@ -46,16 +44,12 @@ permalink: /commands/
 | Command | Description | Permission | Example |
 |---------|-------------|------------|---------|
 | `/exchange <from> <to> <amount> [confirm]` | Convert currencies | `relish.economy.exchange` | `/exchange dollars coins 500` |
-| `/convert <from> <to> <amount> [confirm]` | Alias for exchange | `relish.economy.exchange` | `/convert coins dollars 10` |
-| `/swap <from> <to> <amount> [confirm]` | Alias for exchange | `relish.economy.exchange` | `/swap dollars coins 1000` |
 
 ### Shop Commands
 
 | Command | Description | Permission | Example |
 |---------|-------------|------------|---------|
 | `/shop [category]` | Open shop GUI | `relish.economy.shop` | `/shop blocks` |
-| `/store [category]` | Alias for shop | `relish.economy.shop` | `/store` |
-| `/buy [category]` | Alias for shop | `relish.economy.shop` | `/buy tools` |
 
 ### Selling Commands
 
@@ -79,7 +73,6 @@ permalink: /commands/
 | `/eco give <player\|all> <amount> [currency]` | Give money | `relish.economy.eco` | `/eco give Steve 1000` |
 | `/eco take <player\|all> <amount> [currency]` | Take money | `relish.economy.eco` | `/eco take Steve 500` |
 | `/eco set <player\|all> <amount> [currency]` | Set balance | `relish.economy.eco` | `/eco set Steve 2000` |
-| `/economy give <player> <amount>` | Alias for eco | `relish.economy.eco` | `/economy give Steve 100` |
 
 ### Plugin Management
 
@@ -88,7 +81,6 @@ permalink: /commands/
 | `/re help [page]` | Show help | `relish.economy.use` | `/re help 2` |
 | `/re version` | Plugin information | `relish.economy.use` | `/re version` |
 | `/re reload` | Reload configuration | `relish.economy.admin` | `/re reload` |
-| `/re license` | Check license status | `relish.economy.admin` | `/re license` |
 | `/re migrate <plugin> <currency>` | Import data | `relish.economy.admin` | `/re migrate essentials dollars` |
 
 ## Amount Shortcuts
