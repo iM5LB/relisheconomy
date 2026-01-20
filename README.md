@@ -1,5 +1,8 @@
 <div align="center">
-  
+
+# RelishEconomy
+## Modern economy plugin with multi-currency support
+
 [![License](https://img.shields.io/badge/License-Premium-gold.svg)](https://builtbybit.com/resources/relisheconomy)
 [![Version](https://img.shields.io/badge/Version-1.0-blue.svg)](https://github.com/RelishDev/RelishEconomy)
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.21+-green.svg)](https://papermc.io)
@@ -7,9 +10,9 @@
 
 
 
-![Relish-Economy-Logo](https://cdn.modrinth.com/data/cached_images/7cde857e8cafd9f53e73608b7d66ae763fcc6015_0.webp)
+![Relish-Economy-Logo](https://cdn.modrinth.com/data/cached_images/9df4655d0afd67ba097405f931695951fcb513f2_0.webp)
 
-**Modern economy plugin with multi-currency support**
+
 
 </div>
 
@@ -282,6 +285,7 @@ balance:
 
 [![Discord](https://img.shields.io/badge/Discord-Support-7289da?style=for-the-badge&logo=discord)](https://discord.gg/MYA5tYKXsY)
 [![Documentation](https://img.shields.io/badge/Docs-Read-blue?style=for-the-badge&logo=gitbook)](https://im5lb.github.io/relisheconomy)
+[![Issues](https://img.shields.io/badge/🐛%20Issues-Report-orange?style=for-the-badge)](https://github.com/iM5LB/relisheconomy/issues)
 [![Premium](https://img.shields.io/badge/Premium-Buy-gold?style=for-the-badge&logo=paypal)](https://builtbybit.com/resources/relisheconomy)
 [![GitHub](https://img.shields.io/badge/GitHub-Source-black?style=for-the-badge&logo=github)](https://github.com/im5lb/RelishEconomy)
 </div>
