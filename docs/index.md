@@ -68,6 +68,5 @@ Works perfectly with your existing plugins:
 
 ## Need Help?
 
-- [Discord Support](https://discord.gg/relish)
+- [Discord Support](https://discord.gg/MYA5tYKXsY)
 - [Report Issues](https://github.com/iM5LB/relisheconomy/issues)
-- [Email Support](mailto:support@relish.dev)
