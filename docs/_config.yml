@@ -1,12 +1,11 @@
 # GitHub Pages Jekyll Configuration
 title: RelishEconomy Documentation
 description: Complete guide for RelishEconomy - Multi-Currency Economy Plugin
-baseurl: "/RelishEconomy"
-url: "https://yourusername.github.io"
+baseurl: "/relisheconomy"
+url: "https://im5lb.github.io"
 
 # Theme
 theme: minima
-# Or use: remote_theme: pages-themes/cayman@v0.2.0
 
 # Navigation
 header_pages:
@@ -14,8 +13,6 @@ header_pages:
   - Configuration.md
   - Commands.md
   - PlaceholderAPI.md
-  - Migration.md
-  - Troubleshooting.md
 
 # Plugins
 plugins:
@@ -26,16 +23,17 @@ plugins:
 markdown: kramdown
 highlighter: rouge
 
-# Collections
-collections:
-  docs:
-    output: true
-    permalink: /:collection/:name/
+# Exclude files
+exclude:
+  - _coverpage.md
+  - _sidebar.md
+  - index.html
+  - SUMMARY.md
 
 # Defaults
 defaults:
   - scope:
       path: ""
-      type: "docs"
+      type: "pages"
     values:
       layout: "default"

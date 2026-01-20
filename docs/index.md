@@ -1,39 +1,35 @@
 ---
 layout: default
-title: Home
+title: RelishEconomy Documentation
 ---
 
 # RelishEconomy Documentation
 
 Welcome to the complete documentation for RelishEconomy, the advanced multi-currency economy plugin for Minecraft servers.
 
-## Quick Start
+## Quick Navigation
 
-<div class="grid">
-  <div class="card">
-    <h3>🚀 Installation</h3>
-    <p>Get started with RelishEconomy in minutes</p>
-    <a href="Installation" class="btn">Install Now</a>
-  </div>
-  
-  <div class="card">
-    <h3>⚙️ Configuration</h3>
-    <p>Set up currencies and customize settings</p>
-    <a href="Configuration" class="btn">Configure</a>
-  </div>
-  
-  <div class="card">
-    <h3>📝 Commands</h3>
-    <p>Complete command reference and examples</p>
-    <a href="Commands" class="btn">View Commands</a>
-  </div>
-  
-  <div class="card">
-    <h3>🔗 PlaceholderAPI</h3>
-    <p>Integrate with other plugins using placeholders</p>
-    <a href="PlaceholderAPI" class="btn">View Placeholders</a>
-  </div>
-</div>
+- [🚀 Installation Guide](installation)
+- [⚙️ Configuration](configuration)
+- [📝 Commands Reference](commands)
+- [🔗 PlaceholderAPI](placeholderapi)
+
+## Getting Started
+
+RelishEconomy is a modern multi-currency economy plugin for Minecraft servers running Paper 1.21+.
+
+### Requirements
+- Minecraft 1.21+
+- Paper, Purpur, or Paper-based server
+- Java 21+
+- Vault (recommended)
+
+### Quick Setup
+1. Download the plugin from [Modrinth](https://modrinth.com/plugin/relisheconomy)
+2. Place in `plugins/` folder
+3. Restart server
+4. Configure currencies in `config.yml`
+5. Enjoy!
 
 ## Features Overview
 
@@ -51,44 +47,10 @@ Welcome to the complete documentation for RelishEconomy, the advanced multi-curr
 - MySQL database support
 - Physical currency items
 
-## Getting Help
+Get premium features on [BuiltByBit](https://builtbybit.com/resources/relisheconomy)
+
+## Support
 
 - 💬 [Discord Support](https://discord.gg/relish)
-- 🐛 [Report Issues](https://github.com/RelishDev/RelishEconomy/issues)
-- 📧 [Contact Support](mailto:support@relish.dev)
-
-<style>
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
-}
-
-.card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  background: #f9f9f9;
-}
-
-.card h3 {
-  margin-top: 0;
-  color: #333;
-}
-
-.btn {
-  display: inline-block;
-  background: #007cba;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.btn:hover {
-  background: #005a87;
-}
-</style>
+- 🐛 [Report Issues](https://github.com/iM5LB/relisheconomy/issues)
+- 📧 Contact: support@relish.dev

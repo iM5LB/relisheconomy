@@ -1,3 +1,8 @@
+---
+layout: default
+title: PlaceholderAPI Integration
+---
+
 # PlaceholderAPI Integration
 
 RelishEconomy provides comprehensive PlaceholderAPI support with caching for optimal performance.

@@ -1,3 +1,8 @@
+---
+layout: default
+title: Commands Reference
+---
+
 # Commands Reference
 
 ## Player Commands
