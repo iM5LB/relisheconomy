@@ -13,9 +13,14 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# Markdown settings
+# Markdown settings - Force proper table processing
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  parse_block_html: true
+  parse_span_html: true
 
 # Permalink structure
 permalink: /:title/
