@@ -20,6 +20,6 @@
   * [📞 Getting Help](Support.md)
 
 * **Links**
-  * [📥 Download Free](https://modrinth.com/plugin/relisheconomy)
-  * [🛒 Buy Premium](https://builtbybit.com/resources/relisheconomy)
+  * [📥 Download Free](https://modrinth.com/plugin/relish-economy)
+  * [🛒 Buy Premium](https://builtbybit.com/resources/relish-economy.90571)
   * [💬 Discord](https://discord.gg/jDr2KZcGXk)
