@@ -1,6 +1,5 @@
 <div align="center">
 
-# RelishEconomy
 ## Modern economy plugin with multi-currency support
 
 [![License](https://img.shields.io/badge/License-Premium-gold.svg)](https://builtbybit.com/resources/relisheconomy)
@@ -283,7 +282,7 @@ balance:
 
 <div align="center">
 
-[![Discord](https://img.shields.io/badge/Discord-Support-7289da?style=for-the-badge&logo=discord)](https://discord.gg/MYA5tYKXsY)
+[![Discord](https://img.shields.io/badge/Discord-Support-7289da?style=for-the-badge&logo=discord)](https://discord.gg/jDr2KZcGXk)
 [![Documentation](https://img.shields.io/badge/Docs-Read-blue?style=for-the-badge&logo=gitbook)](https://im5lb.github.io/relisheconomy)
 [![Issues](https://img.shields.io/badge/🐛%20Issues-Report-orange?style=for-the-badge)](https://github.com/iM5LB/relisheconomy/issues)
 [![Premium](https://img.shields.io/badge/Premium-Buy-gold?style=for-the-badge&logo=paypal)](https://builtbybit.com/resources/relisheconomy)
