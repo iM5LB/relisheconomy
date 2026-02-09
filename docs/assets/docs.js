@@ -2,7 +2,7 @@
 // Enhanced with theme toggle, mobile sidebar, and improved navigation
 
 const PAGES = [
-  { file: 'index.md', title: 'Home', section: null },
+  { file: 'README.md', title: 'Home', section: null },
   { file: 'Installation.md', title: 'Installation', section: null },
   
   { file: 'Configuration.md', title: 'Configuration Guide', section: 'Configuration' },
@@ -58,9 +58,9 @@ function closeSidebar() {
 // Hash and Navigation
 function normalizeHash(hash) {
   const file = decodeURIComponent((hash || '').replace(/^#\/?/, ''));
-  if (!file) return 'index.md';
+  if (!file) return 'README.md';
   const entry = PAGES.find(p => p.file.toLowerCase() === file.toLowerCase());
-  return entry ? entry.file : 'index.md';
+  return entry ? entry.file : 'README.md';
 }
 
 // Sidebar Builder
