@@ -2,13 +2,6 @@
 
 ## Modern economy plugin with multi-currency support
 
-[![License](https://img.shields.io/badge/License-Premium-gold.svg)](https://builtbybit.com/resources/relisheconomy)
-[![Version](https://img.shields.io/badge/Version-1.0-blue.svg)](https://github.com/RelishDev/RelishEconomy)
-[![Minecraft](https://img.shields.io/badge/Minecraft-1.21+-green.svg)](https://papermc.io)
-[![Java](https://img.shields.io/badge/Java-21+-orange.svg)](https://adoptium.net)
-
-
-
 ![Relish-Economy-Logo](https://cdn.modrinth.com/data/cached_images/9df4655d0afd67ba097405f931695951fcb513f2_0.webp)
 
 
@@ -46,22 +39,24 @@ RelishEconomy provides a solid economy foundation with multi-currency support, d
 
 ### 🆓 **Free Version**
 - ✅ Basic economy commands (`/balance`, `/pay`, `/baltop`)
-- ✅ Single currency support
-- ✅ SQLite database
+- ✅ **Multi-currency system** with custom properties
+- ✅ **Currency exchange** with configurable rates
+- ✅ **Advanced sell commands** (`/sellhand`, `/sellall`)
+- ✅ **Extended baltop features**
+- ✅ **Advanced transaction logging**
+- ✅ SQLite and MySQL database support
 - ✅ Vault integration
 - ✅ Multi-language support
 - ✅ PlaceholderAPI integration
 - ✅ Data migration from other plugins
 
 ### ⭐ **Premium Version**
-- 🔥 **Multi-currency system** with custom properties
-- 🔥 **Currency exchange** with configurable rates
 - 🔥 **Shop GUI** with category browsing
 - 🔥 **Sell GUI** for item selling
-- 🔥 **MySQL support** for large networks
-- 🔥 **Advanced sell commands** (/sellhand, /sellall)
+- 🔥 **Block interactions** (shop/sell blocks)
+- 🔥 **GUI customization** and interactions
 - 🔥 **Physical currency withdrawal**
-- 🔥 **Extended baltop features**
+- 🔥 **Composter selling** - Throw items on composter to sell items
 
 ---
 
@@ -72,6 +67,8 @@ RelishEconomy provides a solid economy foundation with multi-currency support, d
 3. **Start/Restart** your server
 4. **Configure** in `plugins/RelishEconomy/config.yml`
 5. **Get premium** from [BuiltByBit](https://builtbybit.com/resources/relisheconomy) for advanced features
+6. **Verify your purchase in my [Discord](https://discord.gg/jDr2KZcGXk)**
+
 
 ```bash
 # Quick setup commands
@@ -92,10 +89,11 @@ RelishEconomy provides a solid economy foundation with multi-currency support, d
 | `/pay <player> <amount>` | Send money | `/pay Steve 100` |
 | `/baltop [currency] [page]` | View leaderboard | `/baltop dollars 2` |
 | `/currency <list\|info>` | View currencies | `/currency list` |
-| `/exchange <from> <to> <amount>` ⭐ | Convert currencies | `/exchange dollars coins 500` |
-| `/shop [category]` ⭐ | Open shop GUI | `/shop blocks` |
-| `/sellhand` ⭐ | Sell item in hand | `/sellhand` |
-| `/sellall` ⭐ | Sell all items | `/sellall confirm` |
+| `/exchange <from> <to> <amount>` | Convert currencies | `/exchange dollars coins 500` |
+| `/shop [subcommands]` ⭐ | Open shop GUI | `/shop blocks` 
+`/sell [subcommands]` ⭐ | Open sell  GUI | `/sell price` |
+| `/sellhand` | Sell item in hand | `/sellhand` |
+| `/sellall` | Sell all items | `/sellall confirm` |
 | `/withdraw <currency> <amount>` ⭐ | Get physical currency | `/withdraw coins 10` |
 
 ### 👑 **Admin Commands**
@@ -178,21 +176,236 @@ RelishEconomy can import data from other economy plugins:
 
 ---
 
+## 🛒 **Shop System** ⭐
+
+### 📦 **Shop Features**
+RelishEconomy's premium shop system provides a comprehensive item marketplace with intuitive GUI interfaces and flexible configuration options.
+
+**Core Shop Capabilities:**
+- **15+ item categories** - Wood, Stone, Deepslate, Bricks, Sand, Colors, Natural, Glass, Lighting, Decorations, etc.
+- **Dynamic pricing** - Buy prices calculated from sell prices with configurable multiplier
+- **Category management** - Enable/disable categories, set custom icons
+- **Multi-currency support** - Accept payments in configured buy currency
+- **Bulk purchasing** - Buy items in quantities of 1, 32, or 64 with one click
+- **Permission integration** - Works with permission plugins for access control
+
+**Shop GUI Interface:**
+- **Category browser** - Navigate through 15+ organized item categories
+- **Item preview** - See item details and buy prices
+- **Balance display** - Real-time balance updates during shopping
+- **Sound effects** - Audio feedback for purchases and navigation
+- **Pagination** - Navigate through multiple pages of items
+- **Search functionality** - Find items across all categories
+
+<!-- Shop GUI Screenshot Placeholder -->
+*[Screenshot: Shop category selection interface]*
+
+<!-- Shop Item Browser Screenshot Placeholder -->
+*[Screenshot: Item browsing with pricing and purchase options]*
+
+### 🏪 **Shop Configuration**
+```yaml
+# shop.yml - Actual configuration format
+shop:
+  # NOTE: buy-currency is now deprecated - shop uses per-item currencies from prices.yml
+  buy-currency: "dollars"  # Legacy setting (no longer used)
+  buy-multiplier: 2.0
+  gui:
+    title: "<#fdb833>RelishShop"
+    items-per-page: 28
+
+categories:
+  wood:
+    display-name: "Wood"
+    icon: OAK_LOG
+    enabled: true
+    slot: "1:0"
+    items:
+      - OAK_LOG
+      - SPRUCE_LOG
+      - OAK_PLANKS
+      - SPRUCE_PLANKS
+      # ... more items
+  
+  stone:
+    display-name: "Stone"
+    icon: STONE
+    enabled: true
+    slot: "1:1"
+    items:
+      - STONE
+      - COBBLESTONE
+      - STONE_BRICKS
+      # ... more items
+```
+
+**Available Categories:**
+- **Wood** - All wood types, logs, planks, stripped variants
+- **Stone** - Stone, cobblestone, variants
+- **Deepslate** - Deepslate blocks and variants  
+- **Bricks** - All brick types and variants
+- **Sand/Sandstone** - Sand, sandstone, variants
+- **Color Blocks** - Wool, concrete, terracotta, glass
+- **Natural Blocks** - Dirt, grass, leaves, flowers
+- **Glass** - All glass types and panes
+- **Lighting** - Torches, lanterns, glowstone
+- **Decorations** - Decorative blocks and items
+
+### 🎯 **Shop Commands**
+```bash
+/shop                    # Open main shop interface
+/shop [category]         # Open specific category directly
+```
+
+---
+
+## 💰 **Sell System**
+
+### 📤 **Sell Features**
+The sell system provides multiple ways for players to convert their items into currency, from quick command-based selling to an interactive GUI interface.
+
+**Sell Methods:**
+- **Command-based selling** - Quick `/sellhand` and `/sellall` commands (Free)
+- **Interactive Sell GUI** - Drag-and-drop interface for selective selling (Premium)
+- **Composter selling** - Throw items on composter to sell instantly (Premium)
+- **Auto-grab functionality** - Automatically collect sellable items from inventory (Premium)
+- **Price calculation** - Real-time value calculation with currency conversion
+- **Confirmation system** - Prevent accidental sales with confirmation prompts
+
+**Advanced Sell Features:**
+- **Multi-currency payouts** - Receive payment in configured target currency
+- **Bulk selling** - Sell entire stacks or inventory contents at once
+- **500+ sellable items** - Comprehensive item price database
+- **Composter selling** - Throw items on composter for instant selling (Premium)
+- **Transaction logging** - Track all sell transactions for auditing
+
+### 🎮 **Sell Commands (Free)**
+```bash
+/sellhand               # Sell the item in your hand
+/sellall                # Sell all sellable items in inventory
+/sellall confirm        # Confirm bulk selling with safety check
+```
+
+### 🖱️ **Sell GUI Interface** ⭐
+The premium Sell GUI provides an intuitive drag-and-drop interface for item selling:
+
+**GUI Features:**
+- **Drag-and-drop zones** - Simply drag items to sell them
+- **Quick grab button** - Auto-collect all sellable items from inventory
+- **Real-time pricing** - See total sale value update as you add items
+- **Total calculator** - View total sale value before confirming
+- **Confirmation system** - Confirm sale with total summary
+- **Sound effects** - Audio feedback for all interactions
+
+<!-- Sell GUI Screenshot Placeholder -->
+*[Screenshot: Sell GUI with drag-and-drop interface]*
+
+<!-- Sell Confirmation Screenshot Placeholder -->
+*[Screenshot: Sell confirmation dialog with total value]*
+
+### ⚙️ **Sell Configuration**
+```yaml
+# prices.yml - Actual configuration format
+target-currency: "dollars"
+
+prices:
+  # Basic format
+  STONE: 0.5
+  COBBLESTONE: 0.3
+  OAK_LOG: 1.5
+  
+  # Multi-currency format (if needed)
+  DIAMOND: { price: 100, currency: "gems" }
+  EMERALD: { price: 150, currency: "tokens" }
+```
+
+**500+ Sellable Items Including:**
+- **Stone variants** - Stone, cobblestone, bricks, deepslate
+- **Wood materials** - All logs, planks, stripped variants
+- **Natural blocks** - Dirt, sand, gravel, clay
+- **Precious materials** - Diamonds, emeralds, gold, iron
+- **Nether materials** - Netherrack, soul sand, nether bricks
+- **End materials** - End stone, purpur blocks
+- **Mob drops** - Bones, string, gunpowder, leather
+- **Food items** - Wheat, carrots, potatoes, meat
+
+### 🔧 **Sell Block Interactions**
+Both free and premium users can use physical blocks for convenient item selling:
+
+**Sell Block Features:**
+- **Composter item selling** - Throw items on composter to sell instantly (Free)
+- **Right-click COMPOSTER** - Opens sell GUI interface (Premium)
+- **Configurable cooldown** - Prevents spam (500ms default)
+- **Visual/audio feedback** - Confirmation messages and sounds
+
+```yaml
+# config.yml - Actual configuration
+composter-selling:
+  enabled: true
+  cooldown: 500
+
+sell-gui-block: COMPOSTER
+shop-gui-block: EMERALD_BLOCK
+```
+
+<!-- Sell Block Screenshot Placeholder -->
+*[Screenshot: Player using sell block with particle effects]*
+
+---
+
 ## 🎨 **GUI Features** ⭐
 
 ### 🛒 **Shop Interface**
-- **Category browsing** with configurable icons
+The premium shop GUI provides an elegant and user-friendly shopping experience with full customization options.
+
+**Interface Highlights:**
+- **Category browsing** with configurable icons and colors
 - **Item purchasing** with multiple quantity options (1, 32, 64)
-- **Balance display** and navigation
-- **Sound effects** for interactions
-- **Configurable GUI size** and layout
+- **Balance display** with real-time updates
+- **Sound effects** for all interactions
+- **Configurable GUI size** and layout options
+- **Permission-based category access**
+  
+<div align="center">
+
+# Fancy ShopGUI
+![Relish-Economy-ShopGUI.gif](https://cdn.modrinth.com/data/5RyYvL8C/images/d2f7081e7bac65fea442a276562fb537b6422563.gif)
+
+# Fully customizable with Categories ⭐
+![Relish-Economy-ShopGUI-Category.gif](https://cdn.modrinth.com/data/5RyYvL8C/images/764160c5d241446eea9ec10138534b448d2eda57.gif)
+
+</div>
 
 ### 💼 **Sell Interface**
-- **Drag-and-drop** item selling
+The premium sell GUI offers an intuitive drag-and-drop experience for item selling.
+
+**Interface Features:**
+- **Drag-and-drop** item selling with visual feedback
 - **Quick grab** button to auto-collect sellable items
-- **Real-time value** calculation
-- **Confirmation system** with total display
-- **Sound effects** and visual feedback
+- **Real-time value** calculation and display
+- **Confirmation system** with total sale summary
+- **Sound effects** and particle animations
+- **Multi-currency** payout options
+
+<div align="center">
+
+![Relish-Economy-SellGUI.gif](https://cdn.modrinth.com/data/5RyYvL8C/images/a1244aaf472b1276888f99278b0e4da431bf892c.gif)
+
+</div>
+
+### 🎛️ **GUI Customization** ⭐
+Premium users have full control over GUI appearance and behavior:
+
+**Customization Options:**
+- **GUI sizes** - Choose from 9, 18, 27, 36, 45, or 54 slot layouts
+- **Custom titles** - Set personalized GUI titles with color codes
+- **Item icons** - Use any material as category or button icons
+- **Sound effects** - Configure custom sounds for different actions
+- **Animation effects** - Enable particle effects and visual feedback
+- **Layout templates** - Pre-designed layouts or create your own
+
+<!-- GUI Customization Screenshot Placeholder -->
+*[Screenshot: GUI configuration interface showing customization options]*
 
 ---
 

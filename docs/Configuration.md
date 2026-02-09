@@ -178,7 +178,8 @@ item-currencies:
 ### Shop Configuration (shop.yml)
 ```yaml
 # Shop settings
-buy-currency: dollars
+# NOTE: buy-currency is now deprecated - shop uses per-item currencies from prices.yml
+buy-currency: dollars  # Legacy setting (no longer used)
 buy-multiplier: 1.5  # 50% markup from sell price
 
 # Available categories
