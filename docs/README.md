@@ -31,7 +31,7 @@ RelishEconomy is a powerful, feature-rich economy plugin that brings advanced fi
 ## 📥 Download
 
 - **Free Version**: [Modrinth](https://modrinth.com/plugin/relisheconomy)
-- **Premium Version**: [BuiltByBit](https://builtbybit.com/resources/relish-economy.90571)
+- **Premium License**: [Open Discord Ticket](https://discord.gg/jDr2KZcGXk) - Contact us for premium features
 
 ## 📚 Documentation
 
@@ -87,7 +87,13 @@ We welcome contributions! If you'd like to help improve RelishEconomy:
 
 ## 📜 License
 
-RelishEconomy is proprietary software. The free version is available for personal and commercial use. The premium version requires a license from BuiltByBit.
+RelishEconomy is **proprietary software** - source code is not publicly available.
+
+- **Free Version**: Available for personal and commercial use via [Modrinth](https://modrinth.com/plugin/relisheconomy)
+- **Premium License**: Sold exclusively through [Discord tickets](https://discord.gg/jDr2KZcGXk) - premium source code is not shared
+- **Usage**: Licensed per server - contact us for multi-server licensing
+
+To purchase a premium license, join our Discord and open a ticket.
 
 ---
 

@@ -15,7 +15,9 @@ Get RelishEconomy up and running on your Minecraft server in just a few minutes.
 
 ### 1. Download the Plugin
 - **Free Version**: Download from [Modrinth](https://modrinth.com/plugin/relish-economy)
-- **Premium Version**: Purchase from [BuiltByBit](https://builtbybit.com/resources/relishecoonomy.90571/)
+- **Premium License**: [Open Discord Ticket](https://discord.gg/jDr2KZcGXk) to purchase premium access
+
+> **Note**: Premium licenses are sold exclusively through Discord. Premium source code is not shared - you receive a license key that activates premium features.
 
 ### 2. Install Dependencies
 Download and install these plugins (optional but recommended):

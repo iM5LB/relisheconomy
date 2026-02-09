@@ -3,11 +3,17 @@
 
 const PAGES = [
   { file: 'README.md', title: 'Home', section: null },
+  { file: 'QuickStart.md', title: 'Quick Start', section: null },
   { file: 'Installation.md', title: 'Installation', section: null },
   
-  { file: 'Configuration.md', title: 'Configuration Guide', section: 'Configuration' },
+  { file: 'Configuration.md', title: 'Configuration', section: 'Configuration' },
+  { file: 'Permissions.md', title: 'Permissions', section: 'Configuration' },
+  
+  { file: 'ShopSystem.md', title: 'Shop System', section: 'Features' },
+  
   { file: 'Commands.md', title: 'Commands', section: 'Reference' },
   { file: 'PlaceholderAPI.md', title: 'PlaceholderAPI', section: 'Reference' },
+  { file: 'API.md', title: 'Developer API', section: 'Reference' },
 ];
 
 // DOM Elements
