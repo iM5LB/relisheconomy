@@ -543,7 +543,7 @@ A server-wide marketplace for buying and selling items:
 - License key tied to purchaser and server count
 - **NOT open source** - modification and redistribution prohibited
 
-For full license terms, see [LICENSE](LICENSE) file.
+For full license terms, see [LICENSE](https://github.com/iM5LB/relisheconomy?tab=License-1-ov-file) file.
 
 ### Obtain Premium License
 
