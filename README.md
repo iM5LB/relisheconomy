@@ -142,6 +142,12 @@ database:
     password: password
 ```
 
+### 📊 **Metrics**
+```yaml
+metrics:
+  enabled: true   # bStats Plugin ID is hardcoded
+```
+
 ### 🔄 **Currency Exchange** ⭐
 ```yaml
 exchange-rates:
@@ -209,7 +215,7 @@ RelishEconomy's premium shop system provides a comprehensive item marketplace wi
 ```yaml
 # shop.yml
 shop:
-  buy-currency: "dollars"
+  enabled: true
   buy-multiplier: 2.0
   gui:
     title: "<#fdb833>RelishShop"
@@ -310,6 +316,9 @@ The premium Sell GUI provides an intuitive drag-and-drop interface for item sell
 ### ⚙️ **Sell Configuration**
 ```yaml
 # prices.yml
+sell:
+  enabled: true
+
 target-currency: "dollars"
 
 prices:

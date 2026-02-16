@@ -1,6 +1,38 @@
 # RelishEconomy Changelog
 
-## Version 1.0.4-Beta (February 15, 2026)
+## Version 1.0.4-Beta (February 16, 2026)
+
+### ⚙️ **Configuration & Feature Toggle Changes**
+- Moved sell and shop toggles out of `config.yml`:
+  - `prices.yml` -> `sell.enabled`
+  - `shop.yml` -> `shop.enabled`
+- Added automatic migration from legacy `config.yml` `features.sell/shop` values.
+- Legacy `features` section is now cleaned up automatically.
+
+### 🧩 **Config Updater Improvements**
+- Extended updater coverage beyond `config.yml`:
+  - `shop.yml`
+  - `prices.yml`
+  - `gui.yml`
+  - `lang/*.yml`
+- Preserves existing values and only injects missing keys.
+- Added config layout normalization so new blocks (like `metrics`) are placed in the intended section.
+
+### 💾 **Backup Behavior**
+- Backup files remain in the same directory as the source file.
+- Updated backup naming format for clarity:
+  - `<name>-backup-YYYYMMDD-HHMMSS.ext`
+  - Collision-safe suffixes are appended when needed.
+
+### 📊 **Metrics (bStats)**
+- Added bStats integration.
+- Added config toggle:
+  - `metrics.enabled: true` (default)
+- bStats plugin ID is now hardcoded to `29527`.
+
+---
+
+## Version 1.0.4-Alpha (February 15, 2026)
 
 ### 🔌 **Towny + Vault Compatibility**
 - Added `loadbefore: [Towny]` in `plugin.yml` to improve startup ordering

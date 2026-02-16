@@ -17,6 +17,10 @@ debug-mode: false
 # Automatic update checking
 check-for-updates: true
 
+# bStats metrics (Plugin ID is hardcoded)
+metrics:
+  enabled: true
+
 # Language (en, ar, or custom)
 language: en
 ```
@@ -153,6 +157,10 @@ Create `lang/[code].yml` for any language:
 
 ### Item Prices (prices.yml)
 ```yaml
+# Sell system toggle
+sell:
+  enabled: true
+
 # Target currency for selling
 target-currency: dollars
 
@@ -162,18 +170,18 @@ prices:
   GOLD_INGOT: 50.0
   IRON_INGOT: 10.0
   STONE: 0.1
-  
+
 # Per-item currencies (optional)
-item-currencies:
-  EMERALD: coins  # Emeralds sell for coins instead
+# Use object format under prices:
+# EMERALD: { price: 150, currency: "coins" }
 ```
 
 ### Shop Configuration (shop.yml)
 ```yaml
 # Shop settings
-# NOTE: buy-currency is now deprecated - shop uses per-item currencies from prices.yml
-buy-currency: dollars  # Legacy setting (no longer used)
-buy-multiplier: 1.5  # 50% markup from sell price
+shop:
+  enabled: true
+  buy-multiplier: 1.5  # 50% markup from sell price
 
 # Available categories
 categories:
@@ -261,6 +269,8 @@ RelishEconomy automatically validates and fixes configuration issues:
 - Invalid values are reset to defaults
 - Missing sections are added
 - Deprecated options are removed
+- Missing keys are merged for `config.yml`, `lang/*.yml`, `shop.yml`, `prices.yml`, and `gui.yml`
+- Original files are backed up before updates using names like `config-backup-YYYYMMDD-HHMMSS.yml`
 - Validation report is logged on startup
 
 Use `/re reload` to reload configuration without restarting the server.

@@ -24,6 +24,13 @@ Right-click the configured shop block (default: Emerald Block):
 shop-gui-block: EMERALD_BLOCK
 ```
 
+Shop access can be toggled in `shop.yml`:
+
+```yaml
+shop:
+  enabled: true
+```
+
 ## Shop Categories
 
 The shop is organized into categories for easy navigation:
@@ -94,6 +101,13 @@ You can set different currencies for specific items:
 prices:
   DIAMOND: { price: 100, currency: "dollars" }
   EMERALD: { price: 50, currency: "coins" }
+```
+
+Sell system availability is controlled in `prices.yml`:
+
+```yaml
+sell:
+  enabled: true
 ```
 
 ## Using the Shop
