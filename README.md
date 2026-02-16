@@ -141,13 +141,6 @@ database:
     username: root
     password: password
 ```
-
-### 📊 **Metrics**
-```yaml
-metrics:
-  enabled: true   # bStats Plugin ID is hardcoded
-```
-
 ### 🔄 **Currency Exchange** ⭐
 ```yaml
 exchange-rates:
@@ -418,6 +411,7 @@ Full economy provider implementation:
 - `getBalance()`, `depositPlayer()`, `withdrawPlayer()`
 - Compatible with **any plugin** using Vault
 - Multi-currency support through Vault
+- Towny bank deposits are supported (including `/t deposit <amount>` flow)
 
 ### 📊 **PlaceholderAPI Integration**
 

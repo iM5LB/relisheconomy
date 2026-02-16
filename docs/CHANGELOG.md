@@ -1,13 +1,17 @@
 # RelishEconomy Changelog
 
-## Version 1.0.4-Beta (February 16, 2026)
+## Version 1.0.5-Beta (February 16, 2026)
 
-### ⚙️ **Configuration & Feature Toggle Changes**
-- Moved sell and shop toggles out of `config.yml`:
-  - `prices.yml` -> `sell.enabled`
-  - `shop.yml` -> `shop.enabled`
-- Added automatic migration from legacy `config.yml` `features.sell/shop` values.
-- Legacy `features` section is now cleaned up automatically.
+### 🔧 Fixed
+- Towny bank deposit issue where `/t deposit <amount>` could take player money but town bank stayed at `$0`.
+- Updated Towny/Vault economy flow so town bank balances now update correctly after deposits.
+
+### ⚙️ **Configuration Updates**
+- Added specific configuration options:
+  - shop.yml -> `shop.enabled: true` (default)
+  - prices.yml -> `sell.enabled: true` (default true)
+- Improved config synchronization so missing keys are added while keeping existing values.
+- No structural config move is required for existing server files.
 
 ### 🧩 **Config Updater Improvements**
 - Extended updater coverage beyond `config.yml`:
@@ -16,7 +20,6 @@
   - `gui.yml`
   - `lang/*.yml`
 - Preserves existing values and only injects missing keys.
-- Added config layout normalization so new blocks (like `metrics`) are placed in the intended section.
 
 ### 💾 **Backup Behavior**
 - Backup files remain in the same directory as the source file.
@@ -28,11 +31,10 @@
 - Added bStats integration.
 - Added config toggle:
   - `metrics.enabled: true` (default)
-- bStats plugin ID is now hardcoded to `29527`.
 
 ---
 
-## Version 1.0.4-Alpha (February 15, 2026)
+## Version 1.0.4-Beta (February 15, 2026)
 
 ### 🔌 **Towny + Vault Compatibility**
 - Added `loadbefore: [Towny]` in `plugin.yml` to improve startup ordering
@@ -231,4 +233,6 @@ For questions about this update or issues with migration:
 ---
 
 **Note**: This changelog covers all changes made during the recent development session. For a complete version history, see the Git commit log.
+
+
 
