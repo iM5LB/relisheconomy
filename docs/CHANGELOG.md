@@ -1,5 +1,14 @@
 # RelishEconomy Changelog
 
+## Version 1.0.6-Beta (February 19, 2026)
+
+### 🔧 Fixed
+- Improved command registration handling for licensed and disabled features.
+- Improved reload/restart behavior so feature-based commands update more reliably.
+- General stability improvements around command availability checks.
+
+---
+
 ## Version 1.0.5-Beta (February 16, 2026)
 
 ### 🔧 Fixed
@@ -9,7 +18,7 @@
 ### ⚙️ **Configuration Updates**
 - Added specific configuration options:
   - shop.yml -> `shop.enabled: true` (default)
-  - prices.yml -> `sell.enabled: true` (default true)
+  - prices.yml -> `sell.enabled: true` (default)
 - Improved config synchronization so missing keys are added while keeping existing values.
 - No structural config move is required for existing server files.
 
@@ -233,6 +242,7 @@ For questions about this update or issues with migration:
 ---
 
 **Note**: This changelog covers all changes made during the recent development session. For a complete version history, see the Git commit log.
+
 
 
 
