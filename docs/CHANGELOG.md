@@ -1,5 +1,23 @@
 # RelishEconomy Changelog
 
+## Version 1.0.7-Beta (March 1, 2026)
+
+### ✨ **Added**
+- Added hotbar selling command support:
+  - `/sellhotbar` (alias: `/sellhb`)
+  - `/re sell hotbar` (alias: `/re sell hb`)
+- Added sold-item hover breakdowns to sell result messages.
+
+### 🔧 **Improvements**
+- Expanded sold-item hover behavior across command and GUI sell flows for more consistent feedback.
+- Improved command availability handling for feature/license-based registration.
+
+### 🛠️ **Fixed**
+- Fixed command unregister behavior that could affect commands that should stay available.
+- Fixed incorrect/garbled characters in multiple command output messages.
+
+---
+
 ## Version 1.0.6-Beta (February 19, 2026)
 
 ### 🔧 Fixed

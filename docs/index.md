@@ -17,6 +17,7 @@ Welcome to the complete documentation for RelishEconomy, the advanced multi-curr
 - PlaceholderAPI support
 - Data migration tools
 - SQLite database
+- Command-based selling (`/sellhand`, `/sellhotbar`, `/sellall`)
 
 ### Premium Version
 - Advanced shop GUI with categories

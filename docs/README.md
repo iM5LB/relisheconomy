@@ -11,6 +11,7 @@ RelishEconomy is a powerful, feature-rich economy plugin that brings advanced fi
 - **Vault Integration** - Works with any Vault-dependent plugin
 - **PlaceholderAPI Support** - Rich placeholders for scoreboards and chat
 - **SQLite Database** - Reliable file-based storage
+- **Command-Based Selling** - `/sellhand`, `/sellhotbar`, and `/sellall`
 - **Data Migration Tools** - Import from EssentialsX, CMI, and more
 - **Transaction Logging** - Complete audit trail
 - **Baltop Leaderboards** - Competitive economy rankings

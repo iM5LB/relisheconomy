@@ -118,6 +118,7 @@ lp group default permission set relish.economy.exchange true
 ```
 /shop [category]
 /sellhand
+/sellhotbar
 /sellall [confirm]
 ```
 

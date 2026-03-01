@@ -39,7 +39,7 @@ RelishEconomy provides a solid economy foundation with multi-currency support, d
 - ✅ Basic economy commands (`/balance`, `/pay`, `/baltop`)
 - ✅ **Multi-currency system** with custom properties
 - ✅ **Currency exchange** with configurable rates
-- ✅ **Advanced sell commands** (`/sellhand`, `/sellall`)
+- ✅ **Advanced sell commands** (`/sellhand`, `/sellhotbar`, `/sellall`)
 - ✅ **Extended baltop features**
 - ✅ **Advanced transaction logging**
 - ✅ SQLite and MySQL database support
@@ -87,9 +87,10 @@ RelishEconomy provides a solid economy foundation with multi-currency support, d
 | `/baltop [currency] [page]` | View leaderboard | `/baltop dollars 2` |
 | `/currency <list\|info>` | View currencies | `/currency list` |
 | `/exchange <from> <to> <amount>` | Convert currencies | `/exchange dollars coins 500` |
-| `/shop [subcommands]` ⭐ | Open shop GUI | `/shop blocks` 
-`/sell [subcommands]` ⭐ | Open sell  GUI | `/sell price` |
+| `/shop [subcommands]` ⭐ | Open shop GUI | `/shop blocks` |
+| `/sell [subcommands]` ⭐ | Open sell GUI | `/sell price` |
 | `/sellhand` | Sell item in hand | `/sellhand` |
+| `/sellhotbar` | Sell hotbar items | `/sellhotbar` |
 | `/sellall` | Sell all items | `/sellall confirm` |
 | `/withdraw <currency> <amount>` ⭐ | Get physical currency | `/withdraw coins 10` |
 
@@ -265,7 +266,7 @@ categories:
 The sell system provides multiple ways for players to convert their items into currency, from quick command-based selling to an interactive GUI interface.
 
 **Sell Methods:**
-- **Command-based selling** - Quick `/sellhand` and `/sellall` commands (Free)
+- **Command-based selling** - Quick `/sellhand`, `/sellhotbar`, and `/sellall` commands (Free)
 - **Interactive Sell GUI** - Drag-and-drop interface for selective selling (Premium)
 - **Auto-grab functionality** - Automatically collect sellable items from inventory
 - **Price calculation** - Real-time value calculation with currency conversion
@@ -277,10 +278,12 @@ The sell system provides multiple ways for players to convert their items into c
 - **500+ sellable items** - Comprehensive item price database
 - **Composter selling** - Throw items on composter for instant selling (Premium)
 - **Transaction logging** - Track all sell transactions for auditing
+- **Sold-items hover summary** - Hover chat output to view sold item breakdown
 
 ### 🎮 **Sell Commands (Free)**
 ```bash
 /sellhand               # Sell the item in your hand
+/sellhotbar             # Sell all sellable items in your hotbar
 /sellall                # Sell all sellable items in inventory
 /sellall confirm        # Confirm bulk selling with safety check
 ```

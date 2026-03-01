@@ -49,7 +49,12 @@
 | Command | Description | Permission | Example |
 |---------|-------------|------------|---------|
 | `/sellhand` | Sell item in hand | `relish.economy.sell` | `/sellhand` |
+| `/sellhotbar` | Sell all sellable items in hotbar | `relish.economy.sell` | `/sellhotbar` |
+| `/sellhb` | Alias for sellhotbar | `relish.economy.sell` | `/sellhb` |
+| `/re sell hotbar` | Sell all sellable hotbar items via main command | `relish.economy.sell` | `/re sell hotbar` |
 | `/sellall [confirm]` | Sell all items | `relish.economy.sell` | `/sellall confirm` |
+
+Sell output now includes a hover line in chat showing the sold item breakdown.
 
 ### Physical Currency Commands
 
@@ -116,6 +121,12 @@ You can use these shortcuts in any amount field:
 
 # Sell item in your hand
 /sellhand
+
+# Sell all sellable hotbar items
+/sellhotbar
+
+# Sell hotbar items via main command
+/re sell hotbar
 
 # Sell all items in inventory
 /sellall confirm
