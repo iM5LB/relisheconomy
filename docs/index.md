@@ -2,7 +2,7 @@
 
 Welcome to the complete documentation for RelishEconomy, the advanced multi-currency economy plugin for Minecraft servers running Paper 1.21+.
 
-![M5LB Store Banner](assets/M5LBStore.png)
+[![M5LB Store Banner](assets/M5LBStore.png)](https://m5lb.run.place/)
 
 ## Quick Navigation
 

@@ -3,7 +3,7 @@
 ## Modern economy plugin with multi-currency support
 
 ![Relish-Economy-Logo](https://cdn.modrinth.com/data/cached_images/9df4655d0afd67ba097405f931695951fcb513f2_0.webp)
-![M5LB Store Banner](docs/assets/M5LBStore.png)
+[![M5LB Store Banner](docs/assets/M5LBStore.png)](https://m5lb.run.place/)
 
 [![Discord](https://img.shields.io/badge/Discord-Support-7289da?style=for-the-badge&logo=discord)](https://discord.gg/hjKcHavRjT)
 [![Documentation](https://img.shields.io/badge/Docs-Read-blue?style=for-the-badge&logo=gitbook)](https://im5lb.github.io/relisheconomy)

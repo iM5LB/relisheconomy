@@ -4,7 +4,7 @@
 
 RelishEconomy is a powerful, feature-rich economy plugin that brings advanced financial systems to your Minecraft server. With support for multiple currencies, interactive GUIs, and seamless integration with popular plugins, it's the perfect solution for servers of any size.
 
-![M5LB Store Banner](assets/M5LBStore.png)
+[![M5LB Store Banner](assets/M5LBStore.png)](https://m5lb.run.place/)
 
 ## ✨ Key Features
 
