@@ -1,154 +1,141 @@
 # Commands Reference
 
-## Player Commands
+This page documents the commands shipped in `plugin.yml` plus the `/re` subcommands.
 
-### Balance Commands
+## Player Commands (Free)
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/balance [player] [currency]` | Check balance | `relish.economy.balance` | `/bal coins` |
-| `/bal [player] [currency]` | Alias for balance | `relish.economy.balance` | `/bal Steve dollars` |
-| `/money [player] [currency]` | Alias for balance | `relish.economy.balance` | `/money` |
+### Balance
 
-### Payment Commands
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/balance [player] [currency|all]` | View balances | `relish.economy.balance` |
+| `/bal [player] [currency|all]` | Alias | `relish.economy.balance` |
+| `/money [player] [currency|all]` | Alias | `relish.economy.balance` |
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/pay <player> <amount> [currency]` | Send money | `relish.economy.pay` | `/pay Steve 100` |
+### Pay
 
-### Leaderboard Commands
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/pay <player> <amount> [currency]` | Send money to a player | `relish.economy.pay` |
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/baltop [currency] [page]` | View top balances | `relish.economy.baltop` | `/baltop dollars 2` |
-| `/balancetop [currency] [page]` | Alias for baltop | `relish.economy.baltop` | `/balancetop` |
+### Baltop
 
-### Currency Commands
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/baltop [currency] [page]` | Leaderboard | `relish.economy.baltop` |
+| `/balancetop [currency] [page]` | Alias | `relish.economy.baltop` |
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/currency list` | List all currencies | `relish.economy.currency` | `/currency list` |
-| `/currency info [currency]` | Currency information | `relish.economy.currency` | `/currency info dollars` |
+### Currency
 
-## Premium Commands <span class="badge badge-premium">Premium</span>
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/currency list` | List currencies | `relish.economy.currency` |
+| `/currency info [currency]` | Currency info | `relish.economy.currency` |
 
-### Exchange Commands
+### Exchange
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/exchange <from> <to> <amount> [confirm]` | Convert currencies | `relish.economy.exchange` | `/exchange dollars coins 500` |
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/exchange <from> <to> <amount> [confirm]` | Convert currencies | `relish.economy.exchange` |
 
-### Shop Commands
+### Sell (Commands)
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/shop [category]` | Open shop GUI | `relish.economy.shop` | `/shop blocks` |
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/sell` | Open sell GUI (Premium) or show help/output | `relish.economy.sell` |
+| `/sellhand` | Sell item in hand | `relish.economy.sell` |
+| `/sellhotbar` | Sell hotbar items | `relish.economy.sell` |
+| `/sellhb` | Alias | `relish.economy.sell` |
+| `/sellall [confirm]` | Sell all sellable inventory items | `relish.economy.sell` |
 
-### Selling Commands
+Sell price checking:
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/sellhand` | Sell item in hand | `relish.economy.sell` | `/sellhand` |
-| `/sellhotbar` | Sell all sellable items in hotbar | `relish.economy.sell` | `/sellhotbar` |
-| `/sellhb` | Alias for sellhotbar | `relish.economy.sell` | `/sellhb` |
-| `/re sell hotbar` | Sell all sellable hotbar items via main command | `relish.economy.sell` | `/re sell hotbar` |
-| `/sellall [confirm]` | Sell all items | `relish.economy.sell` | `/sellall confirm` |
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/sell price <item|@hand|@hotbar|@inv>` | Check sell value | `relish.economy.sell` |
+| `/re sell price <item|@hand|@hotbar|@inv>` | Same as above | `relish.economy.sell` |
 
-Sell output now includes a hover line in chat showing the sold item breakdown.
+## Premium Player Features
 
-### Physical Currency Commands
+### Shop GUI
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/withdraw <currency> <amount>` | Get physical currency | `relish.economy.withdraw` | `/withdraw coins 10` |
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/shop` | Open shop GUI | `relish.economy.shop` |
+| `/shop help` | Show shop help | `relish.economy.shop` |
+
+### Physical Currency
+
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/withdraw <currency> <amount>` | Withdraw as a physical item | `relish.economy.withdraw` |
+
+Deposit is done by sneaking + right-clicking a physical currency item (if enabled per currency).
+
+Per-currency toggles:
+- `currencies.<name>.physical-item.deposit-enabled`
+- `currencies.<name>.physical-item.withdraw-enabled`
 
 ## Admin Commands
 
-### Economy Management
+### Core Admin
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/eco give <player\|all> <amount> [currency]` | Give money | `relish.economy.eco` | `/eco give Steve 1000` |
-| `/eco take <player\|all> <amount> [currency]` | Take money | `relish.economy.eco` | `/eco take Steve 500` |
-| `/eco set <player\|all> <amount> [currency]` | Set balance | `relish.economy.eco` | `/eco set Steve 2000` |
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/eco <give|take|set> <player|all> <amount> [currency]` | Manage balances | `relish.economy.eco` |
+| `/re reload` | Reload configuration | `relish.economy.admin` |
+| `/re migrate <plugin> <currency>` | Import data from other plugins | `relish.economy.admin` |
+| `/re version` | Plugin version/info | `relish.economy.use` |
+| `/re help` | Help | `relish.economy.use` |
 
-### Plugin Management
+### Shop Admin (`/re shop ...`)
 
-| Command | Description | Permission | Example |
-|---------|-------------|------------|---------|
-| `/re help [page]` | Show help | `relish.economy.use` | `/re help 2` |
-| `/re version` | Plugin information | `relish.economy.use` | `/re version` |
-| `/re reload` | Reload configuration | `relish.economy.admin` | `/re reload` |
-| `/re migrate <plugin> <currency>` | Import data | `relish.economy.admin` | `/re migrate essentials dollars` |
+```text
+/re shop help
+/re shop search <query>
+/re shop price <item>
+/re shop remove <item> <category>
+```
+
+Shop add / price editor:
+
+```text
+/re shop add <item> <category> <buyPrice> [currency]
+/re shop add @hand [category] [buyPrice|currency] [customId]
+/re shop add @hotbar [category] [currency]
+/re shop add @inv [category] [currency]
+
+/re shop setprice <item> [currency]
+```
+
+Category management:
+
+```text
+/re shop category list
+/re shop category create <name> <display name> <icon> <page:slot>
+/re shop category enable <name>
+/re shop category disable <name>
+/re shop category slot <name> <page:slot>
+/re shop category remove <name> <item>
+```
+
+### Logs
+
+Transaction logs can be viewed from the GUI (Premium) and via the admin command:
+
+| Command | Description | Permission |
+|--------|-------------|------------|
+| `/re logs [player] [page]` | View transaction history | `relish.economy.logs` |
+
+To view other players' logs, grant:
+- `relish.economy.logs.others`
 
 ## Amount Shortcuts
 
-You can use these shortcuts in any amount field:
+You can use these shortcuts anywhere an amount is accepted:
 
 | Shortcut | Value | Example |
 |----------|-------|---------|
-| `k` | × 1,000 | `5k` = 5,000 |
-| `m` | × 1,000,000 | `2m` = 2,000,000 |
-| `b` | × 1,000,000,000 | `1b` = 1,000,000,000 |
-
-## Command Examples
-
-### Basic Usage
-```
-# Check your balance
-/balance
-
-# Check someone else's balance in coins
-/balance Steve coins
-
-# Send 500 dollars to Steve
-/pay Steve 500 dollars
-
-# View top 10 richest players
-/baltop
-
-# View page 2 of coin leaderboard
-/baltop coins 2
-```
-
-### Premium Features <span class="badge badge-premium">Premium</span>
-```
-# Exchange 1000 dollars for coins
-/exchange dollars coins 1000 confirm
-
-# Open the shop
-/shop
-
-# Sell item in your hand
-/sellhand
-
-# Sell all sellable hotbar items
-/sellhotbar
-
-# Sell hotbar items via main command
-/re sell hotbar
-
-# Sell all items in inventory
-/sellall confirm
-
-# Get 10 physical coins
-/withdraw coins 10
-```
-
-### Admin Commands
-```
-# Give 1000 dollars to Steve
-/eco give Steve 1000 dollars
-
-# Give 500 coins to all online players
-/eco give all 500 coins
-
-# Set Steve's balance to 5000 dollars
-/eco set Steve 5000 dollars
-
-# Reload plugin configuration
-/re reload
-
-# Migrate from EssentialsX
-/re migrate essentials dollars
-```
+| `k` | x 1,000 | `5k` = 5,000 |
+| `m` | x 1,000,000 | `2m` = 2,000,000 |
+| `b` | x 1,000,000,000 | `1b` = 1,000,000,000 |

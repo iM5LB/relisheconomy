@@ -114,6 +114,11 @@ license-key: "your-license-key-here"
 shop-gui-block: EMERALD_BLOCK  # Right-click emerald blocks to open shop
 ```
 
+Shop features included in Premium:
+- Favorites (`favorites.yml`)
+- Purchase GUI flow (quantity selection + confirm/cancel/back)
+- Optional "show unpriced items as disabled" toggle (`shop.yml`)
+
 ### 3. Enable Sell GUI
 
 ```yaml
@@ -132,6 +137,37 @@ prices:
   EMERALD: 50.0
   GOLD_INGOT: 25.0
 ```
+
+### 5. (Optional) Enable Physical Currency Items
+
+RelishEconomy can let players withdraw currency as an item (Premium), and optionally deposit it back:
+
+```yaml
+# config.yml (per currency)
+currencies:
+  coins:
+    physical-item:
+      material: GOLD_NUGGET
+      withdraw-enabled: true
+      deposit-enabled: true
+      custom-model-data: 2001   # set to -1 to disable, or change to match your resource pack model.
+```
+
+No extra plugin is required for custom models. Any resource pack can work, as long as it maps your chosen `custom-model-data` to a model.
+
+Command:
+
+```text
+/withdraw coins 10
+```
+
+## Resetting Configs (Defaults)
+
+If you delete `plugins/RelishEconomy/` and start the server again, RelishEconomy will recreate the missing files from the bundled defaults.
+
+Notes:
+- This is expected to print warnings about recreated/auto-corrected files.
+- If you want to fully reset, delete the folder while the server is stopped (not while running).
 
 ## Common Issues
 

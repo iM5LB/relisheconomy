@@ -1,4 +1,4 @@
-# Permissions
+﻿# Permissions
 
 Complete reference for all RelishEconomy permissions.
 
@@ -15,15 +15,15 @@ These permissions are granted to all players by default:
 
 | Permission | Description | Default |
 |------------|-------------|---------|
-| `relish.economy.use` | Use the /re command | ✅ true |
-| `relish.economy.balance` | Check own balance | ✅ true |
-| `relish.economy.pay` | Transfer money to players | ✅ true |
-| `relish.economy.baltop` | View leaderboard | ✅ true |
-| `relish.economy.currency` | View and select currencies | ✅ true |
-| `relish.economy.exchange` | Exchange between currencies | ✅ true |
-| `relish.economy.sell` | Sell items | ✅ true |
-| `relish.economy.shop` | Buy items from shop | ✅ true |
-| `relish.economy.withdraw` | Withdraw physical currency | ✅ true |
+| `relish.economy.use` | Use the /re command | true |
+| `relish.economy.balance` | Check own balance | true |
+| `relish.economy.pay` | Transfer money to players | true |
+| `relish.economy.baltop` | View leaderboard | true |
+| `relish.economy.currency` | View currencies | true |
+| `relish.economy.exchange` | Exchange between currencies | true |
+| `relish.economy.sell` | Sell items | true |
+| `relish.economy.shop` | Buy items from shop | true |
+| `relish.economy.withdraw` | Withdraw physical currency | true |
 
 ## Admin Permissions
 
@@ -31,14 +31,14 @@ These permissions are for server operators:
 
 | Permission | Description | Default |
 |------------|-------------|---------|
-| `relish.economy.*` | All permissions | ❌ op |
-| `relish.economy.admin` | Admin commands | ❌ op |
-| `relish.economy.balance.others` | Check other players' balances | ❌ op |
-| `relish.economy.eco` | All eco sub-commands | ❌ op |
-| `relish.economy.eco.give` | Give money to players | ❌ op |
-| `relish.economy.eco.take` | Take money from players | ❌ op |
-| `relish.economy.eco.set` | Set player balances | ❌ op |
-| `relish.economy.pay.nocooldown` | Bypass pay cooldown | ❌ op |
+| `relish.economy.*` | All permissions | op |
+| `relish.economy.admin` | Admin commands | op |
+| `relish.economy.balance.others` | Check other players' balances | op |
+| `relish.economy.eco` | All eco sub-commands | op |
+| `relish.economy.eco.give` | Give money to players | op |
+| `relish.economy.eco.take` | Take money from players | op |
+| `relish.economy.eco.set` | Set player balances | op |
+| `relish.economy.pay.nocooldown` | Bypass pay cooldown | op |
 
 ## Command-Specific Permissions
 
@@ -134,7 +134,7 @@ lp group default permission set relish.economy.sell true
 
 ### Withdraw Command
 ```
-/re withdraw <amount> [currency]
+/withdraw <currency> <amount>
 ```
 
 - `relish.economy.withdraw` - Withdraw physical currency
@@ -154,9 +154,9 @@ You can restrict access to specific currencies using permissions:
 currencies:
   premium_coins:
     name: "premium_coins"
-    symbol: "◎"
+    symbol: "$"
     display-name: "Premium Coins"
-    permission: "relish.economy.currency.premium"  # Require permission
+    permission: "relish.economy.currency.premium"  # Leave blank ("") to disable requirement
 ```
 
 **Examples**:
@@ -297,3 +297,4 @@ lp group admin permission set relish.economy.* true
 - [Commands Reference](Commands.md) - All available commands
 - [Configuration Guide](Configuration.md) - Currency permissions setup
 - [Quick Start](QuickStart.md) - Getting started guide
+

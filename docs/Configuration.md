@@ -1,317 +1,236 @@
 # Configuration Guide
 
-## Main Configuration (config.yml)
+RelishEconomy uses multiple YAML files under `plugins/RelishEconomy/`.
 
-### Basic Settings
+## Main Config (`config.yml`)
+
+Key settings:
 
 ```yaml
-# Configuration version (DO NOT EDIT)
-config-version: 2
-
-# License key for premium features
+config-version: 3
 license-key: ""
-
-# Debug mode for troubleshooting
 debug-mode: false
-
-# Automatic update checking
 check-for-updates: true
-
-# bStats metrics (Plugin ID is hardcoded)
 metrics:
   enabled: true
-
-# Language (en, ar, pt, or custom)
 language: en
 ```
 
-### Database Configuration
+### Database
 
-#### SQLite (Default)
 ```yaml
 database:
-  type: sqlite
-  real-time-read: false
-```
-
-#### MySQL (For Networks)
-```yaml
-database:
-  type: mysql
-  real-time-read: false
-  
+  type: sqlite            # sqlite | mysql
+  real-time-read: false   # enable only if balances change externally
   mysql:
     host: localhost
     port: 3306
     database: relisheconomy
     username: root
-    password: your_password
+    password: password
+  schema:                 # advanced (optional)
+    balances:
+      table: balances
+      columns:
+        uuid: uuid
+        player_name: player_name
+        discord_id: discord_id
+        currency: currency
+        balance: balance
+        last_modified: last_modified
 ```
 
-Balances store player identity and economy values using:
-- `uuid`
-- `player_name`
-- `discord_id`
-- `currency`
-- `balance`
-- `last_modified`
+### Limits and Cooldowns
 
-### Currency Configuration
+```yaml
+baltop-cache-duration: 300
+pay-cooldown: 3
+max-balance: 999999999.99
+min-transaction: 0.01
+```
 
-Define unlimited currencies with custom properties:
+### Block Interactions (Premium GUIs)
+
+```yaml
+sell-gui-block: COMPOSTER
+shop-gui-block: EMERALD_BLOCK
+
+composter-selling:
+  enabled: true
+  cooldown: 500
+```
+
+### Exchange
+
+Exchange rates are configured per currency:
+
+```yaml
+exchange-fee-percentage: 2.5
+currencies:
+  dollars:
+    exchange-rates:
+      coins: 0.01
+```
+
+### Currencies
+
+Each currency supports per-currency formatting, permissions, exchange rates, and physical currency templates.
 
 ```yaml
 currencies:
   dollars:
-    symbol: "$"                    # Currency symbol (1-3 characters)
-    display-name: "Dollars"        # User-friendly name
-    color: "<green>"              # MiniMessage color format
-    default: true                 # One currency must be default
-    starting-balance: 100.0       # New player starting amount
-    payments-enabled: true        # Allow /pay command
-    permission: null              # Optional permission requirement
-    decimals-enabled: true        # Show decimal places
-    
-  coins:
-    symbol: "◎"
-    display-name: "Coins"
-    color: "<gold>"
-    default: false
-    starting-balance: 50.0
+    name: "dollars"
+    symbol: "$"
+    display-name: "Dollars"
+    color: "<green>"
+    default: true
+    starting-balance: 100.0
     payments-enabled: true
-    permission: "relish.economy.coins"  # Require permission
-    decimals-enabled: false       # Whole numbers only
+    permission: ""
+    decimals-enabled: true
+    exchange-rates:
+      coins: 0.01
+    physical-item:
+      material: PAPER
+      deposit-enabled: true
+      withdraw-enabled: true
+      name: "<green><bold>Dollar Bill"
+      lore:
+        - "<gray>Value: {formatted_amount}"
+        - "<gray>Owner: <white>{owner}"
+        - ""
+        - "<yellow>Shift + Right-Click to deposit"
+      custom-model-data: -1
+      glow: false
+      unbreakable: false
+    crafting:
+      enabled: false
+      value: 100.0
+      amount: 1
+      shape:
+        - "PPP"
+        - "PIP"
+        - "PPP"
+      ingredients:
+        P: PAPER
+        I: INK_SAC
 ```
 
-### Exchange Rates (Premium)
+Notes:
+- Physical currency (`/withdraw`, deposit) is a Premium feature, but its per-currency templates and crafting recipes are configured here.
+- `custom-model-data` is applied to the physical currency item meta when `>= 0`.
 
-Configure currency conversion rates:
+### Custom Model Data (Resource Pack Example)
+
+RelishEconomy does not require any extra plugin for custom models. It simply sets `CustomModelData` on the currency item.
+
+![Physical Currency (Custom Model)](assets/PhysicalCoin.gif)
+
+To make it render as a custom coin/note, you must:
+- Set `custom-model-data` to a number (>= 0) for the currency
+- Provide a resource pack override for the chosen `material`
+- Make sure players use the resource pack (server resource pack recommended)
+
+Bundled defaults enable a `CustomModelData` value for the coins currency. If you don't use a resource pack, it will still render as the normal item material.
 
 ```yaml
-exchange-rates:
-  dollars:
-    coins: 0.01    # 1 dollar = 0.01 coins
+currencies:
   coins:
-    dollars: 100   # 1 coin = 100 dollars
+    physical-item:
+      material: GOLD_NUGGET
+      custom-model-data: 2001  # set to -1 to disable
 ```
 
-### Performance Settings
+To change the model, set `custom-model-data` to your resource pack value, then update your resource pack.
 
-```yaml
-# Baltop cache duration (seconds)
-baltop-cache-duration: 300
+Minecraft 1.21+ item model override example (`assets/minecraft/items/gold_nugget.json`):
 
-# Pay command cooldown (seconds)
-pay-cooldown: 3
-
-# Maximum balance to prevent overflow
-max-balance: 1000000000000
-
-# Minimum transaction amount
-min-transaction: 0.01
+```json
+{
+  "model": {
+    "type": "range_dispatch",
+    "property": "custom_model_data",
+    "index": 0,
+    "entries": [
+      {
+        "threshold": 1234.0,
+        "model": {
+          "type": "model",
+          "model": "minecraft:item/custom/coin_1234"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "model",
+      "model": "minecraft:item/gold_nugget"
+    }
+  }
+}
 ```
 
-### Premium Features Configuration
+Tip: Always keep a valid `fallback` model (like `minecraft:item/gold_nugget`) so normal gold nuggets keep their texture when `CustomModelData` does not match.
+
+## Prices (`prices.yml`)
+
+Sell system toggle and sell prices:
 
 ```yaml
-# Composter selling feature
-composter-selling:
-  enabled: true
-  cooldown: 1000  # Milliseconds between sells
-
-# GUI block interactions
-sell-gui-block: COMPOSTER
-shop-gui-block: CHEST
-
-# Exchange fee percentage
-exchange-fee: 2.5
-```
-
-## Language Files
-
-### English (lang/en.yml)
-```yaml
-balance:
-  current: "<green>Your balance: {balance}"
-  other: "<green>{player}'s balance: {balance}"
-  
-pay:
-  sent: "<green>Sent {amount} to {player}"
-  received: "<green>Received {amount} from {player}"
-  
-errors:
-  insufficient_funds: "<red>Insufficient funds!"
-  player_not_found: "<red>Player not found!"
-```
-
-### Arabic (lang/ar.yml)
-```yaml
-balance:
-  current: "<green>رصيدك: {balance}"
-  other: "<green>رصيد {player}: {balance}"
-  
-pay:
-  sent: "<green>تم إرسال {amount} إلى {player}"
-  received: "<green>تم استلام {amount} من {player}"
-```
-
-### Portuguese (lang/pt.yml)
-```yaml
-balance:
-  current: "<green>Seu saldo: {balance}"
-  other: "<green>Saldo de {player}: {balance}"
-  
-pay:
-  sent: "<green>Enviado {amount} para {player}"
-  received: "<green>Recebido {amount} de {player}"
-```
-
-### Custom Languages
-Create `lang/[code].yml` for any language:
-- Copy `en.yml` as template
-- Translate all messages
-- Set `language: [code]` in config.yml
-
-## Premium Configuration Files
-
-### Item Prices (prices.yml)
-```yaml
-# Sell system toggle
 sell:
   enabled: true
-
-# Target currency for selling
-target-currency: dollars
-
-# Item prices
+target-currency: "dollars"
 prices:
-  DIAMOND: 100.0
-  GOLD_INGOT: 50.0
-  IRON_INGOT: 10.0
-  STONE: 0.1
-
-# Per-item currencies (optional)
-# Use object format under prices:
-# EMERALD: { price: 150, currency: "coins" }
+  STONE: 0.5
+  DIAMOND: { price: 100.0, currency: "coins" }
 ```
 
-### Shop Configuration (shop.yml)
+## Shop (`shop.yml`) (Premium)
+
+Shop settings + categories + optional custom/NBT items.
+
 ```yaml
-# Shop settings
 shop:
   enabled: true
-  buy-multiplier: 1.5  # 50% markup from sell price
-
-# Available categories
-categories:
-  blocks:
-    icon: STONE
-    enabled: true
-  tools:
-    icon: DIAMOND_PICKAXE
-    enabled: true
-    
-# Available items per category
-items:
-  blocks:
-    - STONE
-    - COBBLESTONE
-    - DIRT
-  tools:
-    - WOODEN_PICKAXE
-    - STONE_PICKAXE
-```
-
-### GUI Customization (gui.yml)
-```yaml
-shop:
-  title: "<gold>Shop"
-  size: 54  # Inventory size (9, 18, 27, 36, 45, 54)
+  buy-currency: "dollars"     # legacy/default
+  buy-multiplier: 2.0
   items-per-page: 28
-  
-  # Glass pane decoration
-  glass-panes:
+  categories-enabled: true
+  search-enabled: true
+  show-unpriced-items: false  # show unpriced items as disabled
+
+custom-items: {}
+
+categories:
+  building_blocks:
+    display-name: "Building Blocks"
+    icon: STONE
+    description: "Core structural materials and masonry"
     enabled: true
-    material: GRAY_STAINED_GLASS_PANE
-    
-  # Button positions
-  buttons:
-    previous: 45
-    next: 53
-    balance: 49
-    
-sell:
-  title: "<red>Sell Items"
-  size: 54
-  
-  buttons:
-    shop: 45
-    grab: 49
-    confirm: 53
-    
-# Sound effects
-sounds:
-  gui:
-    open: BLOCK_CHEST_OPEN
-    close: BLOCK_CHEST_CLOSE
-    click: UI_BUTTON_CLICK
-  volume: 1.0
-  pitch: 1.0
+    slot: "1:0"               # page:slot
+    items:
+      - STONE
+      - COBBLESTONE
+      - BRICKS
 ```
 
-## Database Schema Customization
+Custom shop items:
+- Stored under `custom-items` with a Base64 `ItemStack` payload.
+- Referenced from categories using `custom:<id>`.
 
-For advanced users, you can customize table and column names:
+## GUI (`gui.yml`) (Premium)
 
-```yaml
-database:
-  schema:
-    balances:
-      table: "player_balances"
-      columns:
-        uuid: "player_uuid"
-        player_name: "player_name"
-        discord_id: "discord_id"
-        currency: "currency_name"
-        balance: "amount"
-        
-    transactions:
-      table: "economy_transactions"
-      columns:
-        id: "transaction_id"
-        uuid: "player_uuid"
-        amount: "transaction_amount"
-```
+GUI layout and sounds are configured in `gui.yml`, including:
+- `shop-gui` (categories, items, favorites button)
+- `shop-purchase-gui` (quantity picker + confirm/cancel + favorite toggle)
+- `sell-gui`
+- `logs-gui`
+- batch add GUIs and dialogs
+- `sounds.*` (GUI + transaction sounds)
 
-## Configuration Validation
+## Config Updater / Validation
 
-RelishEconomy automatically validates and fixes configuration issues:
+On startup and `/re reload`, RelishEconomy validates configs and can:
+- restore missing bundled files (`config.yml`, `shop.yml`, `prices.yml`, `gui.yml`, `lang/*.yml`)
+- merge missing keys into existing files without wiping your edits
+- back up files before overwriting: `*-backup-YYYYMMDD-HHMMSS.yml`
 
-- Invalid values are reset to defaults
-- Missing sections are added
-- Deprecated options are removed
-- Missing keys are merged for `config.yml`, `lang/*.yml`, `shop.yml`, `prices.yml`, and `gui.yml`
-- Original files are backed up before updates using names like `config-backup-YYYYMMDD-HHMMSS.yml`
-- Validation report is logged on startup
-
-Use `/re reload` to reload configuration without restarting the server.
-
-## Best Practices
-
-### Currency Design
-- Use short, memorable symbols (1-3 characters)
-- Choose distinct colors for each currency
-- Set reasonable starting balances
-- Consider decimal vs whole number currencies
-
-### Performance
-- Use SQLite for small servers (< 500 players)
-- Use MySQL for large networks (500+ players)
-- Enable real-time read only if you manually update balances in the DB (Discord/Web integration)
-- Adjust cache durations based on server size
-
-### Security
-- Restrict admin permissions appropriately
-- Set reasonable maximum balances
-- Use minimum transaction amounts to prevent spam
-- Regular database backups recommended
+If you intentionally reset configs by deleting `plugins/RelishEconomy/`, the validator will recreate missing files and may log warnings like `*.recreated` to make it obvious defaults were restored.
